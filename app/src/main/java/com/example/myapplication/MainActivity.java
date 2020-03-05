@@ -54,4 +54,10 @@ public class MainActivity extends AppCompatActivity {
         Log.e(TAG ,"it is onStart aa");
         super.onStart();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e("zhanglian" ,"it is stop") ;
+    }
 }
