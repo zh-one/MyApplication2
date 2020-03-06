@@ -11,7 +11,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements StudentAdapter.ItemOnClick{
     private final String TAG = getClass().getSimpleName() ;
 
     private TextView tv_name = null ;
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private void initData(){
         list_student = new ArrayList<>() ;
         adapter = new StudentAdapter(list_student ,this) ;
+        adapter.setItemOnClickListener(this);
         for(int i = 0 ; i < 10 ; i ++){
             Student stu = new Student();
             stu.setAge(20 + i);
@@ -57,5 +58,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.e("zhanglian" ,"it is stop") ;
+    }
+
+    @Override
+    public void onClick(int position, Student stu) {
+        Toast.makeText(this ,stu.getName() + " : " + stu.getAge() ,Toast.LENGTH_LONG).show();
     }
 }
