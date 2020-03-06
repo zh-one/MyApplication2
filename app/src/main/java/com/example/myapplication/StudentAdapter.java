@@ -8,12 +8,12 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class StudentApdater extends BaseAdapter {
+public class StudentAdapter extends BaseAdapter {
 
     private List<Student> list = null ;
     private Context context    = null ;
 
-    public StudentApdater(List<Student> list ,Context context){
+    public StudentAdapter(List<Student> list , Context context){
         this.list = list ;
         this.context = context ;
     }
@@ -36,9 +36,10 @@ public class StudentApdater extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         StudentView sv = null ;
         if(null == convertView){
-            convertView = View.inflate(context,android.R.layout.simple_list_item_1 ,null) ;
+            convertView = View.inflate(context,R.layout.item_student ,null) ;
             sv = new StudentView() ;
-            sv.tv_name = convertView.findViewById(android.R.id.text1) ;
+            sv.tv_name = convertView.findViewById(R.id.tv_student_name) ;
+            sv.tv_age  = convertView.findViewById(R.id.tv_student_age)  ;
             convertView.setTag(sv);
         } else {
             sv = (StudentView) convertView.getTag();
@@ -52,10 +53,12 @@ public class StudentApdater extends BaseAdapter {
 
     private void fullView(StudentView v , Student stu){
         v.tv_name.setText(stu.getName());
+        v.tv_age.setText(stu.getAge());
     }
 
 
     class StudentView{
         private TextView tv_name ;
+        private TextView tv_age  ;
     }
 }

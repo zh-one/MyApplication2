@@ -11,15 +11,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.OkHttpClient;
-
 public class MainActivity extends AppCompatActivity {
     private final String TAG = getClass().getSimpleName() ;
 
     private TextView tv_name = null ;
     private ListView lv_student = null ;
     private List<Student> list_student = null ;
-    private StudentApdater adapter = null ;
+    private StudentAdapter adapter = null ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initData(){
         list_student = new ArrayList<>() ;
-        adapter = new StudentApdater(list_student ,this) ;
+        adapter = new StudentAdapter(list_student ,this) ;
         for(int i = 0 ; i < 10 ; i ++){
             Student stu = new Student();
             stu.setAge(20 + i);
