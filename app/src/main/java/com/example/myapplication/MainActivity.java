@@ -63,5 +63,7 @@ public class MainActivity extends AppCompatActivity implements StudentAdapter.It
     @Override
     public void onClick(int position, Student stu) {
         Toast.makeText(this ,stu.getName() + " : " + stu.getAge() ,Toast.LENGTH_LONG).show();
+        list_student.remove(stu) ;
+        adapter.notifyDataSetChanged();
     }
 }
