@@ -39,8 +39,9 @@ public class SendMseActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_msg_main);
-        initData();
+
         initView();
+        initData();
     }
 
     private void initData(){
@@ -60,7 +61,7 @@ public class SendMseActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_send_action :
-                if(TextUtils.isEmpty(msg_et.getText().toString())){
+                if(!TextUtils.isEmpty(msg_et.getText().toString())){
                     list_msg.add(getAMessage(msg_et.getText().toString())) ;
                     adapter.notifyDataSetChanged();
                 } else {
@@ -83,9 +84,8 @@ public class SendMseActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private String getMsgTime(){
-        if(day == null ){
-            day = new Date();
-        }
+        day = new Date();
+
 
         if(df == null){
             df = new SimpleDateFormat("HH:mm:ss");
