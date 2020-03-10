@@ -8,7 +8,7 @@ public class Student implements Serializable {
 
     private String name ;
     private int    age  ;
-
+    private int    hei ;
 
     public String getName() {
         return name;
