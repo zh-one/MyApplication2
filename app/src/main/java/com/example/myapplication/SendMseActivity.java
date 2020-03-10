@@ -64,6 +64,8 @@ public class SendMseActivity extends AppCompatActivity implements View.OnClickLi
                 if(!TextUtils.isEmpty(msg_et.getText().toString())){
                     list_msg.add(getAMessage(msg_et.getText().toString())) ;
                     adapter.notifyDataSetChanged();
+                    msg_lv.setSelection(list_msg.size());
+                    msg_et.setText("");
                 } else {
                     Toast.makeText(this,R.string.send_et_hint ,Toast.LENGTH_LONG).show();
                 }
