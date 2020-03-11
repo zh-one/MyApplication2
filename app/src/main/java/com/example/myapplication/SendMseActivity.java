@@ -35,6 +35,8 @@ public class SendMseActivity extends AppCompatActivity implements View.OnClickLi
     private List<SendMessage> list_msg = null ;
     private MessageAdapter adapter     = null ;
 
+    private  SqliteHelper helper = null ;
+
 
 
     @Override
@@ -47,7 +49,10 @@ public class SendMseActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initData(){
-        list_msg = new ArrayList<>() ;
+        if(helper == null) {
+            helper = new SqliteHelper(this) ;
+        }
+        list_msg =  helper.getDBContent();
         adapter = new MessageAdapter(list_msg ,this) ;
         msg_lv.setAdapter(adapter);
     }
@@ -67,12 +72,7 @@ public class SendMseActivity extends AppCompatActivity implements View.OnClickLi
                     list_msg.add(getAMessage(msg_et.getText().toString())) ;
                     adapter.notifyDataSetChanged();
                     msg_lv.setSelection(list_msg.size());
-
-
-                    SqliteHelper helper = new SqliteHelper(this) ;
                     helper.insertDB(getAMessage(msg_et.getText().toString()));
-                    helper.getDBContent();
-
                     msg_et.setText("");
                 } else {
                     Toast.makeText(this,R.string.send_et_hint ,Toast.LENGTH_LONG).show();

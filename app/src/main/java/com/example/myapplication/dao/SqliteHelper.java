@@ -8,7 +8,9 @@ import android.util.Log;
 
 import com.example.myapplication.SendMessage;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class SqliteHelper extends SQLiteOpenHelper {
 
@@ -16,6 +18,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
     private static SqliteHelper helper = null ;
     private static final String DB_FIle_Name   = "message.db" ;
     private static final int    DB_Version     = 1 ;
+    private static List<SendMessage> list_db   = null ;
 
 
     public SqliteHelper(Context context){
@@ -48,14 +51,25 @@ public class SqliteHelper extends SQLiteOpenHelper {
     public List<SendMessage> getDBContent(){
         Cursor cursor =  getWritableDatabase().query(SqlContent.TABLE_Name,null,null,null,null,null ,null);
 
+        if(null == list_db){
+            list_db = new ArrayList<>() ;
+        } else {
+            list_db.clear();
+        }
 
        while(cursor.moveToNext()){
+           SendMessage msg = new SendMessage() ;
+           msg.set_id(cursor.getString(0));
+           msg.setTime(cursor.getString(1));
+           msg.setContent(cursor.getString(2));
+           msg.setMySending(new Random().nextBoolean());
            Log.e("zhanglian" ,"the id is " + cursor.getColumnName(1)) ;
-           Log.e("zhanglian" ,"the id is " + cursor.getCount()) ;
+         //  Log.e("zhanglian" ,"the id is " + cursor.getCount()) ;
            Log.e("zhanglian" ,"the content is " + cursor.getString(2)) ;
+           list_db.add(msg) ;
        }
 
-        return null ;
+        return list_db ;
 
     }
 }
