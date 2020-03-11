@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.dao.SqliteHelper;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -65,6 +67,12 @@ public class SendMseActivity extends AppCompatActivity implements View.OnClickLi
                     list_msg.add(getAMessage(msg_et.getText().toString())) ;
                     adapter.notifyDataSetChanged();
                     msg_lv.setSelection(list_msg.size());
+
+
+                    SqliteHelper helper = new SqliteHelper(this) ;
+                    helper.insertDB(getAMessage(msg_et.getText().toString()));
+                    helper.getDBContent();
+
                     msg_et.setText("");
                 } else {
                     Toast.makeText(this,R.string.send_et_hint ,Toast.LENGTH_LONG).show();
@@ -81,6 +89,8 @@ public class SendMseActivity extends AppCompatActivity implements View.OnClickLi
         sendMessage.setTime(getMsgTime());
         sendMessage.setContent(text);
         sendMessage.setMySending(new Random().nextBoolean());
+        sendMessage.setFromWho("zhanglian");
+        sendMessage.setToWho("zhanganmu");
         return sendMessage ;
 
     }
