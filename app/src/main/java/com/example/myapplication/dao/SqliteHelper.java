@@ -68,6 +68,7 @@ public class SqliteHelper extends SQLiteOpenHelper {
            Log.e("zhanglian" ,"the content is " + cursor.getString(2)) ;
            list_db.add(msg) ;
        }
+        cursor.close();
 
         return list_db ;
 
