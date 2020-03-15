@@ -105,4 +105,10 @@ public class SendMseActivity extends AppCompatActivity implements View.OnClickLi
 
         return  df.format(day);
     }
+
+    @Override
+    protected void onDestroy() {
+        helper.closeDataBase();
+        super.onDestroy();
+    }
 }

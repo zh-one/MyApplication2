@@ -70,4 +70,10 @@ public class SqliteHelper extends SQLiteOpenHelper {
         return list_db ;
 
     }
+
+    public void closeDataBase(){
+        getWritableDatabase().close();
+
+    }
+
 }
