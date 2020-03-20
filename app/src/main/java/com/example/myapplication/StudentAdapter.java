@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.security.keystore.StrongBoxUnavailableException;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -27,7 +28,9 @@ public class StudentAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return list.get(position);
+        Student one = list.get(position) ;
+      return  list.get(position);
+
     }
 
     @Override
@@ -49,7 +52,7 @@ public class StudentAdapter extends BaseAdapter {
             sv = (StudentView) convertView.getTag();
         }
 
-        fullView(position,sv ,list.get(position)) ;
+     fullView(position,sv ,list.get(position)) ;
 
         return convertView;
     }
@@ -60,7 +63,7 @@ public class StudentAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
               if(onClick != null){
-                  onClick.onClick(position,stu);
+              //    onClick.onClick(position,stu);
               }
             }
         });

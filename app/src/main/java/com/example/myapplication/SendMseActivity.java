@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.app.Activity;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.TextUtils;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.dao.SendMessage;
 import com.example.myapplication.dao.SqliteHelper;
 
 import java.text.SimpleDateFormat;
@@ -35,7 +37,7 @@ public class SendMseActivity extends AppCompatActivity implements View.OnClickLi
     private List<SendMessage> list_msg = null ;
     private MessageAdapter adapter     = null ;
 
-    private  SqliteHelper helper = null ;
+    private SqliteHelper helper = null ;
 
 
 

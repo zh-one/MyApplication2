@@ -14,6 +14,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements StudentAdapter.ItemOnClick {
     private final String TAG = getClass().getSimpleName();
 
+
+
     private TextView tv_name = null;
     private ListView lv_student = null;
     private List<Student> list_student = null;
