@@ -39,13 +39,37 @@ android {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.myconfig
+            if(Boolean.valueOf("$isX70")){
+                signingConfig signingConfigs.myconfig
+            }
+
+
         }
+    }
+    sourceSets{
+        main{
+            if(Boolean.valueOf("$isX70")){
+                System.out.println("$isX70")
+                main.res.srcDirs = ['src/main/res_self']
+            } else {
+                System.out.println("$isX70")
+                main.res.srcDirs = ['src/main/res']
+            }
+
+
+
+        }
+        System.out.println("the dir is " + main.res.srcDirs)
+
     }
 
 }
 
+
+
+
 dependencies {
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
