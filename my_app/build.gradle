@@ -63,9 +63,14 @@ android {
 
     }
 
+
+
+
 }
 
-
+task one{
+    System.out.println(android.sourceSets.main.res.srcDirs)
+}
 
 
 dependencies {
