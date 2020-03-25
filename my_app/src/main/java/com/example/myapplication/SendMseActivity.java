@@ -1,9 +1,6 @@
 package com.example.myapplication;
 
-import android.app.Activity;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -14,12 +11,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.dao.SendMessage;
 import com.example.myapplication.dao.SqliteHelper;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -106,5 +100,11 @@ public class SendMseActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         return  df.format(day);
+    }
+
+    @Override
+    protected void onDestroy() {
+        helper.closeDataBase();
+        super.onDestroy();
     }
 }

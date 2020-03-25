@@ -63,9 +63,6 @@ public class SqliteHelper extends SQLiteOpenHelper {
            msg.setTime(cursor.getString(1));
            msg.setContent(cursor.getString(2));
            msg.setMySending(new Random().nextBoolean());
-           Log.e("zhanglian" ,"the id is " + cursor.getColumnName(1)) ;
-         //  Log.e("zhanglian" ,"the id is " + cursor.getCount()) ;
-           Log.e("zhanglian" ,"the content is " + cursor.getString(2)) ;
            list_db.add(msg) ;
        }
         cursor.close();
@@ -73,4 +70,10 @@ public class SqliteHelper extends SQLiteOpenHelper {
         return list_db ;
 
     }
+
+    public void closeDataBase(){
+        getWritableDatabase().close();
+
+    }
+
 }

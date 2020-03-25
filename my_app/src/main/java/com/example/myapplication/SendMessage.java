@@ -1,4 +1,4 @@
-package com.example.myapplication.dao;
+package com.example.myapplication;
 
 public class SendMessage {
 
@@ -8,6 +8,7 @@ public class SendMessage {
     private String fromWho ;
     private String toWho   ;
     private boolean isMySending ;
+    private String headURL ;
 
     public String get_id() {
         return _id;
@@ -55,5 +56,13 @@ public class SendMessage {
 
     public void setMySending(boolean mySending) {
         isMySending = mySending;
+    }
+
+    public String getHeadURL() {
+        return headURL;
+    }
+
+    public void setHeadURL(String headURL) {
+        this.headURL = headURL;
     }
 }

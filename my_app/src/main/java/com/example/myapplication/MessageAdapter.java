@@ -6,8 +6,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.myapplication.dao.SendMessage;
-
 import java.util.List;
 
 public class MessageAdapter extends BaseAdapter {
