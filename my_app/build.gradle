@@ -3,10 +3,11 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         myconfig {
-            storeFile file('../myself.jks')
-            storePassword 'tanmin'
-            keyAlias = 'test'
-            keyPassword 'tanmin'
+            storeFile file("$sign_file")
+            storePassword "$sign_key"
+            keyAlias  "$sign_ali"
+            keyPassword "$sign_pass"
+
         }
     }
     compileSdkVersion 29
@@ -16,7 +17,9 @@ android {
         applicationId "com.example.myapplication"
         minSdkVersion 27
         targetSdkVersion 29
-        versionCode 1
+        versionCode rootProject.ext.android.minSdkVersion
+        System.out.println("the version is " + rootProject.getSelf_Version())
+        System.out.println("${System.env.My_Name}")
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -24,17 +27,54 @@ android {
 
 
 
+    System.out.println(android.compileSdkVersion + " : " + android.defaultConfig.testInstrumentationRunner)
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.myconfig
         }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if(Boolean.valueOf("$isX70")){
+                signingConfig signingConfigs.myconfig
+            }
+
+
+        }
     }
+    sourceSets{
+        main{
+            if(Boolean.valueOf("$isX70")){
+                System.out.println("$isX70")
+                main.res.srcDirs = ['src/main/res_self']
+            } else {
+                System.out.println("$isX70")
+                main.res.srcDirs = ['src/main/res']
+            }
+
+
+
+        }
+        System.out.println("the dir is " + main.res.srcDirs)
+
+    }
+
+
+
 
 }
 
+task one{
+    System.out.println(android.sourceSets.main.res.srcDirs)
+}
+
+
 dependencies {
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
