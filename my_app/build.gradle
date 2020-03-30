@@ -39,7 +39,7 @@ android {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            if(Boolean.valueOf("$isX70")){
+            if(!Boolean.valueOf("$isX70")){
                 signingConfig signingConfigs.myconfig
             }
 
