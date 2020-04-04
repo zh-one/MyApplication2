@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.myapplication.ExampleUnitTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-03-24T07:14:51" hostname="localhost.localdomain" time="0.009">
+  <properties/>
+  <testcase name="addition_isCorrect" classname="com.example.myapplication.ExampleUnitTest" time="0.009"/>
+  <system-out><![CDATA[the i is 0
+the i is 1
+the i is 2
+the i is 3
+the i is 4
+the i is 5
+the i is 6
+the i is 7
+the i is 8
+the i is 9
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
