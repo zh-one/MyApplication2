@@ -53,3 +53,9 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+task one{
+    System.out.println("this is java test")
+}
+
