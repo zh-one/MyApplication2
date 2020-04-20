@@ -9,6 +9,23 @@ public class Student implements Serializable {
     private String name ;
     private int    age  ;
     private int    hei ;
+    private String firstName ;
+
+    public int getHei() {
+        return hei;
+    }
+
+    public void setHei(int hei) {
+        this.hei = hei;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
     public String getName() {
         return name;
