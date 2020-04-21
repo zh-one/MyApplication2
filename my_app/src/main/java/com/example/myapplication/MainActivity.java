@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements StudentAdapter.It
         setContentView(R.layout.activity_main);
         initData();
         initView();
+        Log.e("test" ,"it is onCreate") ;
 
     }
 
