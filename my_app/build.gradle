@@ -23,6 +23,13 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        if(rootProject.ext.isTestOne){
+            buildConfigField('boolean', 'isTest', 'true');
+        }else{
+            buildConfigField('boolean', 'isTest', 'false');
+        }
+
     }
 
 

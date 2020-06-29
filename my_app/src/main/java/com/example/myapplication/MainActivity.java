@@ -44,6 +44,11 @@ public class MainActivity extends AppCompatActivity implements StudentAdapter.It
     }
 
     private void initView() {
+        if(BuildConfig.isTest){
+
+        } else {
+
+        }
         lv_student = findViewById(R.id.lv_name);
         lv_student.setAdapter(adapter);
     }
