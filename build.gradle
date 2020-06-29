@@ -15,6 +15,8 @@ ext{
         targetSdkVersion : "29"
     ]
 
+    isTestOne = project.hasProperty("isTestOne") ?  Boolean.parseBoolean(project.isTestOne) : true
+    erwre = true
 }
 
 System.out.println(ext.android.minSdkVersion)
@@ -57,5 +59,9 @@ task clean(type: Delete) {
 
 task one{
     System.out.println("this is java test")
+    System.out.println(System.properties['guestName']) ;
+    System.out.println(rootProject.ext.isTestOne)
 }
+
+System.out.println("this is the end")
 
