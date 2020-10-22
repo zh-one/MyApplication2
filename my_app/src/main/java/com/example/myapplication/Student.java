@@ -13,7 +13,7 @@ public class Student implements Serializable {
 
     private String number ;
 	private String id;
-
+        private String adr;
     public int getHei() {
         return hei;
     }
