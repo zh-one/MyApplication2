@@ -21,6 +21,7 @@ public class Student implements Serializable {
         private String testFour ;
 		
 		private String  testFive ;
+		private String testSix ;
     public int getHei() {
         return hei;
     }
